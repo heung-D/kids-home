@@ -8,175 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { font-family: 'Pretendard', sans-serif; }
-    
-    /* 구름 애니메이션 */
-    .cloud {
-      position: absolute;
-      font-size: 3rem;
-      opacity: 0.6;
-      animation: float-horizontal linear infinite;
-    }
-    
-    .cloud1 {
-      top: 10%;
-      left: -10%;
-      animation-duration: 40s;
-    }
-    
-    .cloud2 {
-      top: 25%;
-      left: -15%;
-      animation-duration: 50s;
-      animation-delay: -10s;
-    }
-    
-    .cloud3 {
-      top: 60%;
-      left: -10%;
-      animation-duration: 45s;
-      animation-delay: -20s;
-    }
-    
-    .cloud4 {
-      top: 75%;
-      left: -12%;
-      animation-duration: 55s;
-      animation-delay: -30s;
-    }
-    
-    @keyframes float-horizontal {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(110vw);
-      }
-    }
-    
-    /* 꽃잎 애니메이션 */
-    .petal {
-      position: absolute;
-      font-size: 1.5rem;
-      opacity: 0.7;
-      animation: fall-petal linear infinite;
-    }
-    
-    .petal1 {
-      left: 10%;
-      top: -5%;
-      animation-duration: 12s;
-      animation-delay: 0s;
-    }
-    
-    .petal2 {
-      left: 25%;
-      top: -5%;
-      animation-duration: 15s;
-      animation-delay: -3s;
-    }
-    
-    .petal3 {
-      left: 40%;
-      top: -5%;
-      animation-duration: 13s;
-      animation-delay: -6s;
-    }
-    
-    .petal4 {
-      left: 60%;
-      top: -5%;
-      animation-duration: 14s;
-      animation-delay: -9s;
-    }
-    
-    .petal5 {
-      left: 75%;
-      top: -5%;
-      animation-duration: 16s;
-      animation-delay: -12s;
-    }
-    
-    .petal6 {
-      left: 90%;
-      top: -5%;
-      animation-duration: 11s;
-      animation-delay: -5s;
-    }
-    
-    @keyframes fall-petal {
-      0% {
-        transform: translateY(0) rotate(0deg) translateX(0);
-      }
-      25% {
-        transform: translateY(25vh) rotate(90deg) translateX(20px);
-      }
-      50% {
-        transform: translateY(50vh) rotate(180deg) translateX(-20px);
-      }
-      75% {
-        transform: translateY(75vh) rotate(270deg) translateX(20px);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg) translateX(0);
-      }
-    }
-    
-    /* 나뭇잎 애니메이션 */
-    .leaf {
-      position: absolute;
-      font-size: 1.8rem;
-      opacity: 0.6;
-      animation: fall-leaf linear infinite;
-    }
-    
-    .leaf1 {
-      left: 15%;
-      top: -5%;
-      animation-duration: 10s;
-      animation-delay: -2s;
-    }
-    
-    .leaf2 {
-      left: 35%;
-      top: -5%;
-      animation-duration: 13s;
-      animation-delay: -5s;
-    }
-    
-    .leaf3 {
-      left: 55%;
-      top: -5%;
-      animation-duration: 11s;
-      animation-delay: -8s;
-    }
-    
-    .leaf4 {
-      left: 80%;
-      top: -5%;
-      animation-duration: 14s;
-      animation-delay: -4s;
-    }
-    
-    @keyframes fall-leaf {
-      0% {
-        transform: translateY(0) rotate(0deg) translateX(0);
-      }
-      20% {
-        transform: translateY(20vh) rotate(72deg) translateX(-30px);
-      }
-      40% {
-        transform: translateY(40vh) rotate(144deg) translateX(30px);
-      }
-      60% {
-        transform: translateY(60vh) rotate(216deg) translateX(-30px);
-      }
-      80% {
-        transform: translateY(80vh) rotate(288deg) translateX(30px);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg) translateX(0);
-      }
-    }
   </style>
 </head>
 <body class="m-0 p-0">
@@ -274,33 +105,10 @@
         <div id="mousePosition" class="mt-1 text-yellow-300"></div>
       </div>
       
-      <!-- 애니메이션 레이어 (일러스트 뒤) -->
-      <div class="absolute inset-0 z-0">
-        <!-- 구름들 -->
-        <div class="cloud cloud1">☁️</div>
-        <div class="cloud cloud2">☁️</div>
-        <div class="cloud cloud3">☁️</div>
-        <div class="cloud cloud4">☁️</div>
-        
-        <!-- 꽃잎들 -->
-        <div class="petal petal1">🌸</div>
-        <div class="petal petal2">🌸</div>
-        <div class="petal petal3">🌸</div>
-        <div class="petal petal4">🌸</div>
-        <div class="petal petal5">🌸</div>
-        <div class="petal petal6">🌸</div>
-        
-        <!-- 나뭇잎들 -->
-        <div class="leaf leaf1">🍃</div>
-        <div class="leaf leaf2">🍃</div>
-        <div class="leaf leaf3">🍃</div>
-        <div class="leaf leaf4">🍃</div>
-      </div>
-      
-      <div class="w-full h-full relative z-10" style="width: 100vw; height: calc(100vh - 64px);">
+      <div class="w-full h-full relative" style="width: 100vw; height: calc(100vh - 64px);">
         <!-- 세무관리 -->
         <div class="absolute cursor-pointer transition-transform hover:scale-105" 
-             style="left: 2%; top: 15%; width: 22.5%; height: auto;"
+             style="left: 10.4%; top: 15.8%; width: 28.8%; height: auto;"
              onclick="handleMenuClick('세무관리', 4)">
           <img src="https://github.com/heung-D/kids-home/blob/main/%EC%84%B8%EB%AC%B4%EA%B4%80%EB%A6%AC.png?raw=true" 
                alt="세무관리" 
@@ -309,7 +117,7 @@
 
         <!-- 특별한기능 -->
         <div class="absolute cursor-pointer transition-transform hover:scale-105" 
-             style="left: 25%; top: 5%; width: 32%; height: auto;"
+             style="left: 37.4%; top: 12.2%; width: 27%; height: auto;"
              onclick="handleMenuClick('특별한기능', 2)">
           <img src="https://github.com/heung-D/kids-home/blob/main/%ED%8A%B9%EB%B3%84%ED%95%9C%EA%B8%B0%EB%8A%A5.png?raw=true" 
                alt="특별한기능" 
@@ -318,7 +126,7 @@
 
         <!-- 직원관리 -->
         <div class="absolute cursor-pointer transition-transform hover:scale-105" 
-             style="left: 63%; top: 8%; width: 32%; height: auto;"
+             style="left: 59.9%; top: 14%; width: 28.8%; height: auto;"
              onclick="handleMenuClick('직원관리', 3)">
           <img src="https://github.com/heung-D/kids-home/blob/main/%EC%A7%81%EC%9B%90%EA%B4%80%EB%A6%AC.png?raw=true" 
                alt="직원관리" 
@@ -327,7 +135,7 @@
 
         <!-- 회계관리&필수정산 -->
         <div class="absolute cursor-pointer transition-transform hover:scale-105" 
-             style="left: 11%; top: 42%; width: 32%; height: auto;"
+             style="left: 16.7%; top: 46.4%; width: 28.8%; height: auto;"
              onclick="handleMenuClick('회계관리와 필수정산', 1)">
           <img src="https://github.com/heung-D/kids-home/blob/main/%ED%9A%8C%EA%B3%84%EA%B4%80%EB%A6%AC&%ED%95%84%EC%88%98%EC%A0%95%EC%82%B0.png?raw=true" 
                alt="회계관리와 필수정산" 
@@ -336,7 +144,7 @@
 
         <!-- 이용가이드 -->
         <div class="absolute cursor-pointer transition-transform hover:scale-105" 
-             style="left: 48%; top: 38%; width: 17%; height: auto;"
+             style="left: 43.7%; top: 51.8%; width: 15.3%; height: auto;"
              onclick="handleGuideClick('main', '메인화면')">
           <img src="https://github.com/heung-D/kids-home/blob/main/%EC%9D%B4%EC%9A%A9%EA%B0%80%EC%9D%B4%EB%93%9C.png?raw=true" 
                alt="이용가이드" 
@@ -345,7 +153,7 @@
 
         <!-- 커뮤니티 -->
         <div class="absolute cursor-pointer transition-transform hover:scale-105" 
-             style="left: 53%; top: 42%; width: 32%; height: auto;"
+             style="left: 54.5%; top: 46.4%; width: 28.8%; height: auto;"
              onclick="handleMenuClick('커뮤니티', 5)">
           <img src="https://github.com/heung-D/kids-home/blob/main/%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0.png?raw=true" 
                alt="커뮤니티" 
@@ -475,6 +283,20 @@
       5: ['어린이집 신규 문의', '유치원 신규 문의', 'SONO 이용신청', '행정처분상담', '노무분쟁상담'],
     };
 
+    // 탭별 컨텐츠 데이터
+    const tabContents = {
+      '아주쉬운 회계정리': [
+        'https://github.com/heung-D/kids-home/blob/main/%ED%9A%8C%EA%B3%84%EA%B4%80%EB%A6%AC%EC%99%80%ED%95%84%EC%88%98%EC%A0%95%EC%82%B0/%EC%95%84%EC%A3%BC%EC%89%AC%EC%9A%B4%20%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC/%EC%95%84%EC%89%AC%EC%9A%B4%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC-1.png?raw=true',
+        'https://github.com/heung-D/kids-home/blob/main/%ED%9A%8C%EA%B3%84%EA%B4%80%EB%A6%AC%EC%99%80%ED%95%84%EC%88%98%EC%A0%95%EC%82%B0/%EC%95%84%EC%A3%BC%EC%89%AC%EC%9A%B4%20%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC/%EC%95%84%EC%89%AC%EC%9A%B4%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC-2.png?raw=true',
+        'https://github.com/heung-D/kids-home/blob/main/%ED%9A%8C%EA%B3%84%EA%B4%80%EB%A6%AC%EC%99%80%ED%95%84%EC%88%98%EC%A0%95%EC%82%B0/%EC%95%84%EC%A3%BC%EC%89%AC%EC%9A%B4%20%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC/%EC%95%84%EC%89%AC%EC%9A%B4%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC-3.png?raw=true',
+        'https://github.com/heung-D/kids-home/blob/main/%ED%9A%8C%EA%B3%84%EA%B4%80%EB%A6%AC%EC%99%80%ED%95%84%EC%88%98%EC%A0%95%EC%82%B0/%EC%95%84%EC%A3%BC%EC%89%AC%EC%9A%B4%20%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC/%EC%95%84%EC%89%AC%EC%9A%B4%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC-4.png?raw=true',
+        'https://github.com/heung-D/kids-home/blob/main/%ED%9A%8C%EA%B3%84%EA%B4%80%EB%A6%AC%EC%99%80%ED%95%84%EC%88%98%EC%A0%95%EC%82%B0/%EC%95%84%EC%A3%BC%EC%89%AC%EC%9A%B4%20%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC/%EC%95%84%EC%89%AC%EC%9A%B4%ED%9A%8C%EA%B3%84%EC%A0%95%EB%A6%AC-5.png?raw=true'
+      ],
+      '매인화면': [
+        'https://github.com/heung-D/kids-home/blob/main/1.%EC%9D%B4%EC%9A%A9%EA%B0%80%EC%9D%B4%EB%93%9C-%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.png?raw=true'
+      ]
+    };
+
     const guideMenus = [
       { id: 'main', name: '메인화면' },
       { id: 'accounting', name: '회계입력' },
@@ -521,8 +343,14 @@
         btn.classList.remove('bg-sky-100', 'text-sky-400');
         btn.classList.add('bg-transparent', 'text-gray-600');
       });
-      event.target.classList.add('bg-sky-100', 'text-sky-400');
-      event.target.classList.remove('bg-transparent', 'text-gray-600');
+      
+      // 상단 메뉴바의 해당 버튼 찾아서 하이라이트
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        if (btn.textContent.trim() === name) {
+          btn.classList.add('bg-sky-100', 'text-sky-400');
+          btn.classList.remove('bg-transparent', 'text-gray-600');
+        }
+      });
 
       const tabsContainer = document.getElementById('tabsContainer');
       tabsContainer.innerHTML = '';
@@ -533,6 +361,9 @@
         btn.onclick = () => selectTab(btn, tabsContainer);
         tabsContainer.appendChild(btn);
       });
+      
+      // 첫 번째 탭의 컨텐츠 로드
+      loadTabContent(tabs[id][0]);
     }
 
     function handleMenuClickWithTab(name, id, tabIndex) {
@@ -556,6 +387,9 @@
         tabsContainer.appendChild(btn);
       });
 
+      // 선택된 탭의 컨텐츠 로드
+      loadTabContent(tabs[id][tabIndex]);
+
       // 드롭다운 메뉴 숨김
       hideMenuDropdown(id);
     }
@@ -567,6 +401,24 @@
       });
       selectedBtn.classList.add('bg-sky-400', 'text-white', 'shadow-md');
       selectedBtn.classList.remove('bg-white', 'text-gray-600');
+      
+      // 컨텐츠 로드
+      loadTabContent(selectedBtn.textContent);
+    }
+
+    function loadTabContent(tabName) {
+      const contentContainer = document.getElementById('detailContent');
+      const content = tabContents[tabName];
+      
+      if (content && Array.isArray(content)) {
+        // 이미지 배열인 경우
+        contentContainer.innerHTML = content.map((imgUrl, idx) => 
+          `<img src="${imgUrl}" alt="${tabName} ${idx + 1}" class="w-full ${idx < content.length - 1 ? 'mb-6' : ''} rounded-lg shadow-md" loading="lazy">`
+        ).join('');
+      } else {
+        // 컨텐츠가 없는 경우
+        contentContainer.innerHTML = '<p class="text-gray-500 text-center py-12">준비 중입니다.</p>';
+      }
     }
 
     function showGuideMenu() {
@@ -602,6 +454,12 @@
           btn.onclick = () => selectGuideSubTab(btn, subTabsContainer);
           subTabsContainer.appendChild(btn);
         });
+        
+        // 첫 번째 서브탭의 컨텐츠 로드
+        loadGuideContent(subTabs[0]);
+      } else {
+        // 서브탭이 없으면 기본 컨텐츠 표시
+        loadGuideContent(name);
       }
 
       hideGuideMenu();
@@ -614,6 +472,24 @@
       });
       selectedBtn.classList.add('bg-sky-400', 'text-white', 'shadow-md');
       selectedBtn.classList.remove('bg-white', 'text-gray-600');
+      
+      // 컨텐츠 로드
+      loadGuideContent(selectedBtn.textContent);
+    }
+
+    function loadGuideContent(contentName) {
+      const contentContainer = document.getElementById('guideContent');
+      const content = tabContents[contentName];
+      
+      if (content && Array.isArray(content)) {
+        // 이미지 배열인 경우
+        contentContainer.innerHTML = content.map((imgUrl, idx) => 
+          `<img src="${imgUrl}" alt="${contentName} ${idx + 1}" class="w-full ${idx < content.length - 1 ? 'mb-6' : ''} rounded-lg shadow-md" loading="lazy">`
+        ).join('');
+      } else {
+        // 컨텐츠가 없는 경우
+        contentContainer.innerHTML = '<p class="text-gray-500 text-center py-12">준비 중입니다.</p>';
+      }
     }
 
     function openLogin() {
