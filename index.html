@@ -8,24 +8,244 @@
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { font-family: 'Pretendard', sans-serif; }
+    
+    /* 구름 애니메이션 */
+    .cloud {
+      position: absolute;
+      font-size: 3rem;
+      opacity: 0.6;
+      animation: float-horizontal linear infinite;
+    }
+    
+    .cloud1 {
+      top: 10%;
+      left: -10%;
+      animation-duration: 40s;
+    }
+    
+    .cloud2 {
+      top: 25%;
+      left: -15%;
+      animation-duration: 50s;
+      animation-delay: -10s;
+    }
+    
+    .cloud3 {
+      top: 60%;
+      left: -10%;
+      animation-duration: 45s;
+      animation-delay: -20s;
+    }
+    
+    .cloud4 {
+      top: 75%;
+      left: -12%;
+      animation-duration: 55s;
+      animation-delay: -30s;
+    }
+    
+    @keyframes float-horizontal {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(110vw);
+      }
+    }
+    
+    /* 꽃잎 애니메이션 */
+    .petal {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.7;
+      animation: fall-petal linear infinite;
+    }
+    
+    .petal1 {
+      left: 10%;
+      top: -5%;
+      animation-duration: 12s;
+      animation-delay: 0s;
+    }
+    
+    .petal2 {
+      left: 25%;
+      top: -5%;
+      animation-duration: 15s;
+      animation-delay: -3s;
+    }
+    
+    .petal3 {
+      left: 40%;
+      top: -5%;
+      animation-duration: 13s;
+      animation-delay: -6s;
+    }
+    
+    .petal4 {
+      left: 60%;
+      top: -5%;
+      animation-duration: 14s;
+      animation-delay: -9s;
+    }
+    
+    .petal5 {
+      left: 75%;
+      top: -5%;
+      animation-duration: 16s;
+      animation-delay: -12s;
+    }
+    
+    .petal6 {
+      left: 90%;
+      top: -5%;
+      animation-duration: 11s;
+      animation-delay: -5s;
+    }
+    
+    @keyframes fall-petal {
+      0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+      }
+      25% {
+        transform: translateY(25vh) rotate(90deg) translateX(20px);
+      }
+      50% {
+        transform: translateY(50vh) rotate(180deg) translateX(-20px);
+      }
+      75% {
+        transform: translateY(75vh) rotate(270deg) translateX(20px);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg) translateX(0);
+      }
+    }
+    
+    /* 나뭇잎 애니메이션 */
+    .leaf {
+      position: absolute;
+      font-size: 1.8rem;
+      opacity: 0.6;
+      animation: fall-leaf linear infinite;
+    }
+    
+    .leaf1 {
+      left: 15%;
+      top: -5%;
+      animation-duration: 10s;
+      animation-delay: -2s;
+    }
+    
+    .leaf2 {
+      left: 35%;
+      top: -5%;
+      animation-duration: 13s;
+      animation-delay: -5s;
+    }
+    
+    .leaf3 {
+      left: 55%;
+      top: -5%;
+      animation-duration: 11s;
+      animation-delay: -8s;
+    }
+    
+    .leaf4 {
+      left: 80%;
+      top: -5%;
+      animation-duration: 14s;
+      animation-delay: -4s;
+    }
+    
+    @keyframes fall-leaf {
+      0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+      }
+      20% {
+        transform: translateY(20vh) rotate(72deg) translateX(-30px);
+      }
+      40% {
+        transform: translateY(40vh) rotate(144deg) translateX(30px);
+      }
+      60% {
+        transform: translateY(60vh) rotate(216deg) translateX(-30px);
+      }
+      80% {
+        transform: translateY(80vh) rotate(288deg) translateX(30px);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg) translateX(0);
+      }
+    }
   </style>
 </head>
 <body class="m-0 p-0">
   <div id="app" class="w-full h-screen flex flex-col">
     <!-- 헤더 -->
-    <header class="bg-white px-10 py-3.5 flex items-center shadow-md relative z-10">
+    <header class="bg-white px-10 py-4 flex items-center shadow-md relative z-10">
       <div class="flex items-center cursor-pointer flex-shrink-0" onclick="goToMain()">
-        <img src="https://raw.githubusercontent.com/heung-D/kidshome/b7e475a2240bdd3b9337d27815b0c5ac0c501fca/%ED%82%A4%EC%A6%88%ED%99%88%20%EB%A1%9C%EA%B3%A0.svg" alt="키즈홈" class="h-10">
+        <img src="https://raw.githubusercontent.com/heung-D/kidshome/b7e475a2240bdd3b9337d27815b0c5ac0c501fca/%ED%82%A4%EC%A6%88%ED%99%88%20%EB%A1%9C%EA%B3%A0.svg" alt="키즈홈" class="h-16">
       </div>
       <nav class="flex-1 flex justify-center gap-1">
-        <button onclick="handleMenuClick('회계관리와 필수정산', 1)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">회계관리와 필수정산</button>
-        <button onclick="handleMenuClick('특별한기능', 2)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">특별한기능</button>
-        <button onclick="handleMenuClick('직원관리', 3)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">직원관리</button>
-        <button onclick="handleMenuClick('세무관리', 4)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">세무관리</button>
-        <button onclick="handleMenuClick('커뮤니티', 5)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">커뮤니티</button>
-        <div class="relative" onmouseenter="showGuideMenu()" onmouseleave="hideGuideMenu()">
+        <!-- 회계관리와 필수정산 -->
+        <div class="relative menu-container" onmouseenter="showMenuDropdown(1)" onmouseleave="hideMenuDropdown(1)">
+          <button onclick="handleMenuClick('회계관리와 필수정산', 1)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">회계관리와 필수정산</button>
+          <div id="menuDropdown1" class="hidden absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50" onmouseenter="showMenuDropdown(1)" onmouseleave="hideMenuDropdown(1)">
+            <button onclick="handleMenuClickWithTab('회계관리와 필수정산', 1, 0)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">아주쉬운 회계정리</button>
+            <button onclick="handleMenuClickWithTab('회계관리와 필수정산', 1, 1)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">필요경비정산</button>
+            <button onclick="handleMenuClickWithTab('회계관리와 필수정산', 1, 2)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">누리과정정산</button>
+            <button onclick="handleMenuClickWithTab('회계관리와 필수정산', 1, 3)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">시간제보육정산</button>
+          </div>
+        </div>
+        
+        <!-- 특별한기능 -->
+        <div class="relative menu-container" onmouseenter="showMenuDropdown(2)" onmouseleave="hideMenuDropdown(2)">
+          <button onclick="handleMenuClick('특별한기능', 2)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">특별한기능</button>
+          <div id="menuDropdown2" class="hidden absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50" onmouseenter="showMenuDropdown(2)" onmouseleave="hideMenuDropdown(2)">
+            <button onclick="handleMenuClickWithTab('특별한기능', 2, 0)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">지자체연동서비스</button>
+            <button onclick="handleMenuClickWithTab('특별한기능', 2, 1)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">영수증등록서비스</button>
+            <button onclick="handleMenuClickWithTab('특별한기능', 2, 2)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">쇼핑몰영수증자동수집</button>
+            <button onclick="handleMenuClickWithTab('특별한기능', 2, 3)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">CMS스쿨뱅킹</button>
+          </div>
+        </div>
+        
+        <!-- 직원관리 -->
+        <div class="relative menu-container" onmouseenter="showMenuDropdown(3)" onmouseleave="hideMenuDropdown(3)">
+          <button onclick="handleMenuClick('직원관리', 3)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">직원관리</button>
+          <div id="menuDropdown3" class="hidden absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50" onmouseenter="showMenuDropdown(3)" onmouseleave="hideMenuDropdown(3)">
+            <button onclick="handleMenuClickWithTab('직원관리', 3, 0)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">급여관리서비스</button>
+            <button onclick="handleMenuClickWithTab('직원관리', 3, 1)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">4대보험신고</button>
+            <button onclick="handleMenuClickWithTab('직원관리', 3, 2)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">4대보험료 자동조회</button>
+            <button onclick="handleMenuClickWithTab('직원관리', 3, 3)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">고용·산재 보수총액 신고</button>
+            <button onclick="handleMenuClickWithTab('직원관리', 3, 4)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">근로자통합사이트</button>
+          </div>
+        </div>
+        
+        <!-- 세무관리 -->
+        <div class="relative menu-container" onmouseenter="showMenuDropdown(4)" onmouseleave="hideMenuDropdown(4)">
+          <button onclick="handleMenuClick('세무관리', 4)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">세무관리</button>
+          <div id="menuDropdown4" class="hidden absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50" onmouseenter="showMenuDropdown(4)" onmouseleave="hideMenuDropdown(4)">
+            <button onclick="handleMenuClickWithTab('세무관리', 4, 0)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">원천세업무</button>
+            <button onclick="handleMenuClickWithTab('세무관리', 4, 1)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">연말정산</button>
+          </div>
+        </div>
+        
+        <!-- 커뮤니티 -->
+        <div class="relative menu-container" onmouseenter="showMenuDropdown(5)" onmouseleave="hideMenuDropdown(5)">
+          <button onclick="handleMenuClick('커뮤니티', 5)" class="menu-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">커뮤니티</button>
+          <div id="menuDropdown5" class="hidden absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50" onmouseenter="showMenuDropdown(5)" onmouseleave="hideMenuDropdown(5)">
+            <button onclick="handleMenuClickWithTab('커뮤니티', 5, 0)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">어린이집 신규 문의</button>
+            <button onclick="handleMenuClickWithTab('커뮤니티', 5, 1)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">유치원 신규 문의</button>
+            <button onclick="handleMenuClickWithTab('커뮤니티', 5, 2)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">SONO 이용신청</button>
+            <button onclick="handleMenuClickWithTab('커뮤니티', 5, 3)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">행정처분상담</button>
+            <button onclick="handleMenuClickWithTab('커뮤니티', 5, 4)" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">노무분쟁상담</button>
+          </div>
+        </div>
+        
+        <!-- 이용가이드 -->
+        <div class="relative guide-menu-container" onmouseenter="showGuideMenu()" onmouseleave="hideGuideMenu()">
           <button class="guide-btn px-4 py-2.5 border-none rounded-lg cursor-pointer text-sm font-semibold transition-colors bg-transparent text-gray-600 hover:bg-gray-100">이용가이드</button>
-          <div id="guideDropdown" class="hidden absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50">
+          <div id="guideDropdown" class="hidden absolute top-full left-0 mt-1 bg-white rounded-xl shadow-2xl border border-gray-200 py-2 z-50" onmouseenter="showGuideMenu()" onmouseleave="hideGuideMenu()">
             <button onclick="handleGuideClick('main', '메인화면')" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">메인화면</button>
             <button onclick="handleGuideClick('accounting', '회계입력')" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">회계입력</button>
             <button onclick="handleGuideClick('budget', '예산결산')" class="w-full text-left px-5 py-2.5 text-sm text-gray-700 hover:bg-sky-50 hover:text-sky-500 transition-colors whitespace-nowrap border-l-4 border-transparent hover:border-sky-400">예산결산</button>
@@ -47,37 +267,130 @@
     </header>
 
     <!-- 메인 영역 -->
-    <main id="mainContent" class="flex-1 bg-sky-400"></main>
+    <main id="mainContent" class="flex-1 bg-sky-400 relative overflow-hidden">
+      <!-- 해상도 및 마우스 좌표 표시 -->
+      <div id="resolutionDisplay" class="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg font-mono text-sm z-50">
+        <div id="screenSize"></div>
+        <div id="mousePosition" class="mt-1 text-yellow-300"></div>
+      </div>
+      
+      <!-- 애니메이션 레이어 (일러스트 뒤) -->
+      <div class="absolute inset-0 z-0">
+        <!-- 구름들 -->
+        <div class="cloud cloud1">☁️</div>
+        <div class="cloud cloud2">☁️</div>
+        <div class="cloud cloud3">☁️</div>
+        <div class="cloud cloud4">☁️</div>
+        
+        <!-- 꽃잎들 -->
+        <div class="petal petal1">🌸</div>
+        <div class="petal petal2">🌸</div>
+        <div class="petal petal3">🌸</div>
+        <div class="petal petal4">🌸</div>
+        <div class="petal petal5">🌸</div>
+        <div class="petal petal6">🌸</div>
+        
+        <!-- 나뭇잎들 -->
+        <div class="leaf leaf1">🍃</div>
+        <div class="leaf leaf2">🍃</div>
+        <div class="leaf leaf3">🍃</div>
+        <div class="leaf leaf4">🍃</div>
+      </div>
+      
+      <div class="w-full h-full relative z-10" style="width: 100vw; height: calc(100vh - 64px);">
+        <!-- 세무관리 -->
+        <div class="absolute cursor-pointer transition-transform hover:scale-105" 
+             style="left: 2%; top: 15%; width: 22.5%; height: auto;"
+             onclick="handleMenuClick('세무관리', 4)">
+          <img src="https://github.com/heung-D/kids-home/blob/main/%EC%84%B8%EB%AC%B4%EA%B4%80%EB%A6%AC.png?raw=true" 
+               alt="세무관리" 
+               class="w-full h-auto drop-shadow-2xl">
+        </div>
+
+        <!-- 특별한기능 -->
+        <div class="absolute cursor-pointer transition-transform hover:scale-105" 
+             style="left: 25%; top: 5%; width: 32%; height: auto;"
+             onclick="handleMenuClick('특별한기능', 2)">
+          <img src="https://github.com/heung-D/kids-home/blob/main/%ED%8A%B9%EB%B3%84%ED%95%9C%EA%B8%B0%EB%8A%A5.png?raw=true" 
+               alt="특별한기능" 
+               class="w-full h-auto drop-shadow-2xl">
+        </div>
+
+        <!-- 직원관리 -->
+        <div class="absolute cursor-pointer transition-transform hover:scale-105" 
+             style="left: 63%; top: 8%; width: 32%; height: auto;"
+             onclick="handleMenuClick('직원관리', 3)">
+          <img src="https://github.com/heung-D/kids-home/blob/main/%EC%A7%81%EC%9B%90%EA%B4%80%EB%A6%AC.png?raw=true" 
+               alt="직원관리" 
+               class="w-full h-auto drop-shadow-2xl">
+        </div>
+
+        <!-- 회계관리&필수정산 -->
+        <div class="absolute cursor-pointer transition-transform hover:scale-105" 
+             style="left: 11%; top: 42%; width: 32%; height: auto;"
+             onclick="handleMenuClick('회계관리와 필수정산', 1)">
+          <img src="https://github.com/heung-D/kids-home/blob/main/%ED%9A%8C%EA%B3%84%EA%B4%80%EB%A6%AC&%ED%95%84%EC%88%98%EC%A0%95%EC%82%B0.png?raw=true" 
+               alt="회계관리와 필수정산" 
+               class="w-full h-auto drop-shadow-2xl">
+        </div>
+
+        <!-- 이용가이드 -->
+        <div class="absolute cursor-pointer transition-transform hover:scale-105" 
+             style="left: 48%; top: 38%; width: 17%; height: auto;"
+             onclick="handleGuideClick('main', '메인화면')">
+          <img src="https://github.com/heung-D/kids-home/blob/main/%EC%9D%B4%EC%9A%A9%EA%B0%80%EC%9D%B4%EB%93%9C.png?raw=true" 
+               alt="이용가이드" 
+               class="w-full h-auto drop-shadow-2xl">
+        </div>
+
+        <!-- 커뮤니티 -->
+        <div class="absolute cursor-pointer transition-transform hover:scale-105" 
+             style="left: 53%; top: 42%; width: 32%; height: auto;"
+             onclick="handleMenuClick('커뮤니티', 5)">
+          <img src="https://github.com/heung-D/kids-home/blob/main/%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0.png?raw=true" 
+               alt="커뮤니티" 
+               class="w-full h-auto drop-shadow-2xl">
+        </div>
+      </div>
+    </main>
 
     <!-- 상세 페이지 영역 (숨김) -->
-    <div id="detailPage" class="hidden flex-1 flex flex-col">
-      <div class="bg-gray-50 py-4 px-10 border-b border-gray-200 flex items-center gap-4">
-        <button onclick="goToMain()" class="bg-white border border-gray-300 rounded-md py-1.5 px-4 cursor-pointer text-sm text-gray-600 hover:bg-gray-50 transition-colors">← 메인</button>
-        <h2 id="detailTitle" class="m-0 text-xl text-gray-800 font-semibold"></h2>
-      </div>
-      <div id="tabsContainer" class="bg-white px-10 border-b border-gray-200 flex gap-1 flex-wrap"></div>
-      <div class="flex-1 py-5 px-10 bg-gray-100 overflow-auto">
-        <div class="max-w-4xl mx-auto">
-          <div class="bg-white rounded-2xl p-12 min-h-[400px] shadow-sm">
-            <!-- 컨텐츠 영역 -->
+    <div id="detailPage" class="hidden flex-1 flex flex-col bg-white">
+      <!-- 컨텐츠 영역 -->
+      <div class="flex-1 bg-gray-50 overflow-auto">
+        <div class="px-6 md:px-12 lg:px-24 xl:px-32 2xl:px-[200px]">
+          <!-- 타이틀 (상단에서 50px 아래) - 센터 정렬 -->
+          <h2 id="detailTitle" class="text-2xl md:text-3xl font-bold text-gray-800 mt-8 md:mt-12 lg:mt-[50px] text-center"></h2>
+          
+          <!-- 탭 컨테이너 (타이틀 아래 30px) - 센터 정렬 -->
+          <div id="tabsContainer" class="flex gap-2 flex-wrap mt-6 md:mt-8 lg:mt-[30px] justify-center"></div>
+          
+          <!-- 컨텐츠 박스 (탭 아래 30px) -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 lg:p-10 xl:p-12 shadow-lg mt-6 md:mt-8 lg:mt-[30px] mb-10 min-h-[500px]">
+            <div id="detailContent">
+              <!-- 컨텐츠 영역 -->
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- 이용가이드 페이지 영역 (숨김) -->
-    <div id="guidePage" class="hidden flex-1 flex flex-col">
-      <div class="bg-gray-50 py-4 px-10 border-b border-gray-200 flex items-center gap-4">
-        <button onclick="goToMain()" class="bg-white border border-gray-300 rounded-md py-1.5 px-4 cursor-pointer text-sm text-gray-600 hover:bg-gray-50 transition-colors">← 메인</button>
-        <h2 class="m-0 text-xl text-gray-800 font-semibold">이용가이드</h2>
-        <span class="text-gray-400">|</span>
-        <span id="guideTitle" class="text-sky-500 font-medium"></span>
-      </div>
-      <div id="guideTabsContainer" class="bg-white px-10 border-b border-gray-200 flex gap-1 flex-wrap"></div>
-      <div class="flex-1 py-5 px-10 bg-gray-100 overflow-auto">
-        <div class="max-w-4xl mx-auto">
-          <div class="bg-white rounded-2xl p-12 min-h-[400px] shadow-sm">
-            <!-- 컨텐츠 영역 -->
+    <div id="guidePage" class="hidden flex-1 flex flex-col bg-white">
+      <!-- 컨텐츠 영역 -->
+      <div class="flex-1 bg-gray-50 overflow-auto">
+        <div class="px-6 md:px-12 lg:px-24 xl:px-32 2xl:px-[200px]">
+          <!-- 타이틀 (상단에서 50px 아래) - 센터 정렬 -->
+          <h2 id="guideTitle" class="text-2xl md:text-3xl font-bold text-sky-500 mt-8 md:mt-12 lg:mt-[50px] text-center"></h2>
+          
+          <!-- 서브 탭 컨테이너 (타이틀 아래 30px) - 센터 정렬 -->
+          <div id="guideSubTabsContainer" class="flex gap-2 flex-wrap mt-6 md:mt-8 lg:mt-[30px] justify-center"></div>
+          
+          <!-- 컨텐츠 박스 (서브 탭 아래 30px) -->
+          <div class="bg-white rounded-2xl p-6 md:p-8 lg:p-10 xl:p-12 shadow-lg mt-6 md:mt-8 lg:mt-[30px] mb-10 min-h-[500px]">
+            <div id="guideContent">
+              <!-- 컨텐츠 영역 -->
+            </div>
           </div>
         </div>
       </div>
@@ -118,6 +431,42 @@
   </div>
 
   <script>
+    // 해상도 표시
+    function updateResolution() {
+      const sizeDisplay = document.getElementById('screenSize');
+      if (sizeDisplay) {
+        sizeDisplay.textContent = `화면: ${window.innerWidth} x ${window.innerHeight}`;
+      }
+    }
+    
+    // 마우스 좌표 표시
+    function updateMousePosition(e) {
+      const posDisplay = document.getElementById('mousePosition');
+      if (posDisplay && document.getElementById('mainContent').classList.contains('flex-1')) {
+        posDisplay.textContent = `마우스: X ${e.clientX} Y ${e.clientY}`;
+      }
+    }
+    
+    window.addEventListener('load', updateResolution);
+    window.addEventListener('resize', updateResolution);
+    document.addEventListener('mousemove', updateMousePosition);
+
+    // 이용가이드 메뉴 타이머
+    let guideMenuTimer;
+    let menuDropdownTimers = {};
+
+    // 메뉴 드롭다운 표시/숨김
+    function showMenuDropdown(id) {
+      clearTimeout(menuDropdownTimers[id]);
+      document.getElementById('menuDropdown' + id).classList.remove('hidden');
+    }
+
+    function hideMenuDropdown(id) {
+      menuDropdownTimers[id] = setTimeout(() => {
+        document.getElementById('menuDropdown' + id).classList.add('hidden');
+      }, 200);
+    }
+
     const tabs = {
       1: ['아주쉬운 회계정리', '필요경비정산', '누리과정정산', '시간제보육정산'],
       2: ['지자체연동서비스', '영수증등록서비스', '쇼핑몰영수증자동수집', 'CMS스쿨뱅킹'],
@@ -135,6 +484,16 @@
       { id: 'payroll', name: '급여세무컨설팅' },
       { id: 'hr', name: '입퇴사관리' },
     ];
+
+    const guideSubTabs = {
+      'main': ['매인화면', '단축아이콘', '좌측메뉴', '우측메뉴', '하단메뉴', '회원정보', '예산신청'],
+      'accounting': [],
+      'budget': [],
+      'integration': [],
+      'labor': [],
+      'payroll': [],
+      'hr': [],
+    };
 
     let currentLoginType = 'kindergarten';
     let currentGuideId = 'main';
@@ -170,27 +529,55 @@
       tabs[id].forEach((tab, idx) => {
         const btn = document.createElement('button');
         btn.textContent = tab;
-        btn.className = `py-4 px-6 bg-transparent border-none cursor-pointer text-sm whitespace-nowrap transition-colors ${idx === 0 ? 'border-b-[3px] border-sky-400 text-sky-400 font-bold' : 'border-b-[3px] border-transparent text-gray-600 hover:text-gray-800'}`;
+        btn.className = `py-3 px-6 border-none rounded-lg cursor-pointer text-sm font-semibold whitespace-nowrap transition-all ${idx === 0 ? 'bg-sky-400 text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-100'}`;
         btn.onclick = () => selectTab(btn, tabsContainer);
         tabsContainer.appendChild(btn);
       });
     }
 
+    function handleMenuClickWithTab(name, id, tabIndex) {
+      document.getElementById('mainContent').classList.add('hidden');
+      document.getElementById('guidePage').classList.add('hidden');
+      document.getElementById('detailPage').classList.remove('hidden');
+      document.getElementById('detailTitle').textContent = name;
+      
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.classList.remove('bg-sky-100', 'text-sky-400');
+        btn.classList.add('bg-transparent', 'text-gray-600');
+      });
+
+      const tabsContainer = document.getElementById('tabsContainer');
+      tabsContainer.innerHTML = '';
+      tabs[id].forEach((tab, idx) => {
+        const btn = document.createElement('button');
+        btn.textContent = tab;
+        btn.className = `py-3 px-6 border-none rounded-lg cursor-pointer text-sm font-semibold whitespace-nowrap transition-all ${idx === tabIndex ? 'bg-sky-400 text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-100'}`;
+        btn.onclick = () => selectTab(btn, tabsContainer);
+        tabsContainer.appendChild(btn);
+      });
+
+      // 드롭다운 메뉴 숨김
+      hideMenuDropdown(id);
+    }
+
     function selectTab(selectedBtn, container) {
       container.querySelectorAll('button').forEach(btn => {
-        btn.classList.remove('border-sky-400', 'text-sky-400', 'font-bold');
-        btn.classList.add('border-transparent', 'text-gray-600');
+        btn.classList.remove('bg-sky-400', 'text-white', 'shadow-md');
+        btn.classList.add('bg-white', 'text-gray-600');
       });
-      selectedBtn.classList.add('border-sky-400', 'text-sky-400', 'font-bold');
-      selectedBtn.classList.remove('border-transparent', 'text-gray-600');
+      selectedBtn.classList.add('bg-sky-400', 'text-white', 'shadow-md');
+      selectedBtn.classList.remove('bg-white', 'text-gray-600');
     }
 
     function showGuideMenu() {
+      clearTimeout(guideMenuTimer);
       document.getElementById('guideDropdown').classList.remove('hidden');
     }
 
     function hideGuideMenu() {
-      document.getElementById('guideDropdown').classList.add('hidden');
+      guideMenuTimer = setTimeout(() => {
+        document.getElementById('guideDropdown').classList.add('hidden');
+      }, 200);
     }
 
     function handleGuideClick(id, name) {
@@ -203,19 +590,30 @@
       document.querySelector('.guide-btn').classList.add('bg-orange-100', 'text-orange-500');
       document.querySelector('.guide-btn').classList.remove('bg-transparent', 'text-gray-600');
 
-      const tabsContainer = document.getElementById('guideTabsContainer');
-      tabsContainer.innerHTML = '';
-      guideMenus.forEach((menu) => {
-        const btn = document.createElement('button');
-        btn.textContent = menu.name;
-        btn.className = `py-4 px-6 bg-transparent border-none cursor-pointer text-sm whitespace-nowrap transition-colors ${menu.id === id ? 'border-b-[3px] border-sky-400 text-sky-400 font-bold' : 'border-b-[3px] border-transparent text-gray-600 hover:text-gray-800'}`;
-        btn.onclick = () => {
-          handleGuideClick(menu.id, menu.name);
-        };
-        tabsContainer.appendChild(btn);
-      });
+      // 서브 탭만 생성 - 다른 탭과 동일한 스타일
+      const subTabsContainer = document.getElementById('guideSubTabsContainer');
+      subTabsContainer.innerHTML = '';
+      const subTabs = guideSubTabs[id] || [];
+      if (subTabs.length > 0) {
+        subTabs.forEach((subTab, idx) => {
+          const btn = document.createElement('button');
+          btn.textContent = subTab;
+          btn.className = `py-3 px-6 border-none rounded-lg cursor-pointer text-sm font-semibold whitespace-nowrap transition-all ${idx === 0 ? 'bg-sky-400 text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-100'}`;
+          btn.onclick = () => selectGuideSubTab(btn, subTabsContainer);
+          subTabsContainer.appendChild(btn);
+        });
+      }
 
       hideGuideMenu();
+    }
+
+    function selectGuideSubTab(selectedBtn, container) {
+      container.querySelectorAll('button').forEach(btn => {
+        btn.classList.remove('bg-sky-400', 'text-white', 'shadow-md');
+        btn.classList.add('bg-white', 'text-gray-600');
+      });
+      selectedBtn.classList.add('bg-sky-400', 'text-white', 'shadow-md');
+      selectedBtn.classList.remove('bg-white', 'text-gray-600');
     }
 
     function openLogin() {
